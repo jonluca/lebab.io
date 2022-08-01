@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { INIT_CODE } from "../utils/constants";
 import { useDebouncedCallback } from "use-debounce";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 import AceEditor from "react-ace";
 // @ts-ignore
 import lebab from "lebab";
