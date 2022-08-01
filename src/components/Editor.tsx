@@ -51,31 +51,35 @@ const CodeEditor = () => {
       setCode(value);
     },
     // delay in ms
-    1000,
+    200,
   );
   useEffect(() => {
     setTranspiled(() => {
-      const newCode = lebab.transform(code, [
-        "arg-rest",
-        "arg-spread",
-        "arrow",
-        "arrow-return",
-        "class",
-        "commonjs",
-        "default-param",
-        "destruct-param",
-        "exponent",
-        "for-each",
-        "for-of",
-        "includes",
-        "let",
-        "multi-var",
-        "no-strict",
-        "obj-method",
-        "obj-shorthand",
-        "template",
-      ]);
-      return newCode;
+      try {
+        const newCode = lebab.transform(code, [
+          "arg-rest",
+          "arg-spread",
+          "arrow",
+          "arrow-return",
+          "class",
+          "commonjs",
+          "default-param",
+          "destruct-param",
+          "exponent",
+          "for-each",
+          "for-of",
+          "includes",
+          "let",
+          "multi-var",
+          "no-strict",
+          "obj-method",
+          "obj-shorthand",
+          "template",
+        ]);
+        return newCode;
+      } catch (e) {
+        return { code: `ERROR: ${e}`, warnings: [] };
+      }
     });
   }, [code]);
 
